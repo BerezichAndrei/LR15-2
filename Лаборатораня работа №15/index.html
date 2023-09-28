@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №15</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <h1>JavaScript Clock</h1>
+
+  <div id="clock">
+    <div id="time" class="glow"></div>
+
+    <div id="date">
+      <span class="month"></span>
+      <span class="day"></span>,
+      <span class="year"></span>
+    </div>
+
+    <div class="container">
+      <button id="twelveHourBtn">24 hour clock</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <ul id="days">
+      <li class="sunday">Sun</li>
+      <li class="monday">Mon</li>
+      <li class="tuesday">Tues</li>
+      <li class="wednesday">Wed</li>
+      <li class="thursday">Thurs</li>
+      <li class="friday">Fri</li>
+      <li class="saturday">Sat</li>
+    </ul>
+  </div>
+       <div class="wrapper">
+        <div class="wrapper__inner">
+            <div class="wrapper__item">
+                <input value="Нажми на меня" onclick="alert('Клик!!')" type="button">
+            </div>
+            <div class="wrapper__item">
+                <input value="Считать кроликов" onclick="countRabbits()" type="button">
+            </div>
+            <div class="wrapper__item">
+                <input id="elem" value="Нажми на меня" type="button">
+            </div>
+            <div class="wrapper__item">
+                <button onclick="alert(this.innerHTML)">Нажми на меня</button>
+            </div>
+            <div class="wrapper__item">
+                <input id="elem1" value="Нажми на меня" type="button">
+            </div>
+            <div class="wrapper__item">
+                <input id="elem3" value="Удалить событие" type="button">
+            </div>
+            
+            <div class="wrapper__item">
+                <form action="" onclick="alert('сюда всплытие не дойдет')">
+                    <div onclick="event.stopPropagation()">
+                        <p onclick="alert('дальше не пойдет')">8 ПРИМЕР</p>
+                    </div>
+                </form>
+            </div>
+            <div class="wrapper__item">
+                <input id="event" value="Event" type="button">
+            </div>
+        </div>
+       
+        <div class="wrapper__inner wrapper__interface">
+            <div class="wrapper__item">
+                <div class="click__button">КЛИК</div>
+            </div>
+            <div class="wrapper__item">
+                <div class="mouseDown__button">Кнопка нажата</div>
+            </div>
+            <div class="wrapper__item">
+                <div class="mouseUp__button">Кнопка отпущена</div>
+            </div>
+            <div class="wrapper__item">
+                <div class="mouseOver__button">мышь над блоком</div>
+            </div>
+            <div class="wrapper__item">
+                <div class="mouseOut__button">Мышь вне блока</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function countRabbits() {
+            for (let i = 0; i < 5; i++) {
+                alert("Кролик номер" + i)
+            }
+        }
+
+        elem.onclick = function() {
+            alert("Спасибо")
+        }
+
+
+        function handler() {
+            alert("Спасибо!");
+        }
+
+        function handler1() {
+            alert("Спасибо!")
+        }
+        function handler2() {
+            alert("Спасибо ещё раз!")
+        }
+
+        elem1.onclick = () => alert("Привет");
+        elem1.addEventListener("click", handler1); 
+        elem1.addEventListener("click", handler2); 
+
+        elem3.addEventListener("click", handler);
+        elem3.removeEventListener("click", handler);
+
+
+
+    </script>
+    <script src="./assets/js/script.js"></script>
+   
+
+    
+</body>
+</html>
